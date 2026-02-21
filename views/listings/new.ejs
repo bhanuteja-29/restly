@@ -1,0 +1,72 @@
+<% layout('/layouts/boilerplate.ejs') -%>
+	<div class="row mt-3">
+		<div class="col-8 offset-2">
+			<div class="form-container">
+				<h2>Create New Listing</h2>
+				<form action="/listings" method="POST" class="needs-validation" novalidate enctype="multipart/form-data">
+					<div class="mb-3">
+						<label for="title" class="form-label mb-0">Title</label>
+						<input type="text" name="listing[title]" placeholder="Add a catchy title" class="form-control" id="title" required>
+						<div class="valid-feedback">
+							Title looks good
+						</div>
+						<div class="invalid-feedback">
+							Enter the title
+						</div>
+					</div>
+					<div class="mb-3">
+						<label for="location" class="form-label mb-0">Location</label>
+						<input type="text" name="listing[location]" placeholder="Jaipur,Rajasthan" id="location" class="form-control">
+						<div class="invalid-feedback">
+							Enter the location
+						</div>
+					</div>
+					<div class="mb-3">
+						<label for="category">Choose a Category</label>
+						<select name="listing[categories][]" class="form-select" id="category">
+    						<option value="">All Categories</option>
+    						<option value="Trending" <%= selectedCategory === 'Trending' ? 'selected' : '' %>>Trending</option>
+    						<option value="Hotels" <%= selectedCategory === 'Hotels' ? 'selected' : '' %>>Hotels</option>
+    						<option value="Iconic Cities" <%= selectedCategory === 'Iconic Cities' ? 'selected' : '' %>>Iconic Cities</option>
+    						<option value="Mountains" <%= selectedCategory === 'Mountains' ? 'selected' : '' %>>Mountains</option>
+    						<option value="Castles" <%= selectedCategory === 'Castles' ? 'selected' : '' %>>Castles</option>
+    						<option value="Swimming" <%= selectedCategory === 'Swimming' ? 'selected' : '' %>>Swimming</option>
+    						<option value="Farms" <%= selectedCategory === 'Farms' ? 'selected' : '' %>>Farms</option>
+    						<option value="Hill Stations" <%= selectedCategory === 'Hill Stations' ? 'selected' : '' %>>Hill Stations</option>
+    						<option value="Beach" <%= selectedCategory === 'Beach' ? 'selected' : '' %>>Beach</option>
+    						<option value="Camping" <%= selectedCategory === 'Camping' ? 'selected' : '' %>>Camping</option>
+    						<option value="Historical Homes" <%= selectedCategory === 'Historical Homes' ? 'selected' : '' %>>Historical Homes</option>
+  						</select>
+					</div>
+					<div class="row">
+						<div class="col-md-8 mb-3">
+							<label for="country" class="form-label mb-0">Country</label>
+							<input type="text" name="listing[country]" placeholder="India" id="country" class="form-control" required>
+							<div class="invalid-feedback">
+								Enter the country
+							</div>
+						</div>
+						<div class="col-md-4 mb-3">
+							<label for="price" class="form-label mb-0">Price</label>
+							<input type="number" name="listing[price]" placeholder="1200" id="price" class="form-control" required>
+							<div class="invalid-feedback">
+								Enter the price
+							</div>
+						</div>
+					</div>
+					<div class="mb-3">
+						<label for="image" class="form-label mb-0">Image URL</label>
+						<input type="file" name="listing[image]" placeholder="Image URL" id="image" class="form-control" required>
+					</div>
+					<div class="mb-3">
+						<label for="description" class="form-label mb-0">Description</label>
+						<textarea name="listing[description]" placeholder="A beautiful place to relax and enjoy." id="description" class="form-control" ></textarea>
+						<div class="invalid-feedback">
+							Enter the description
+						</div>
+					</div>
+					<button type="submit" class="btn btn-dark add-btn mt-3 mb-3">Create Listing</button>
+				</form>
+			</div>
+		</div>
+	</div>

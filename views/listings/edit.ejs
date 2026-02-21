@@ -1,0 +1,57 @@
+<% layout('/layouts/boilerplate.ejs') -%>
+<div class="row mt-3">
+    <div class="col-8 offset-2">
+        <div class="form-container">
+            <h2>Edit your Listing</h2>
+            <form action="/listings/<%=listing._id%>?_method=PUT" method="POST" novalidate class="needs-validation" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="title" class="form-label mb-0">Title</label>
+                    <input type="text" name="listing[title]" placeholder="Add a catchy title" class="form-control" id="title" required value="<%=listing.title%>">
+                    <div class="invalid-feedback">
+						Enter the title
+					</div>
+                </div>
+                <div class="mb-3">
+                    <label for="location" class="form-label mb-0">Location</label>
+                    <input type="text" name="listing[location]" placeholder="Jaipur,Rajasthan" id="location" class="form-control"  value="<%=listing.location%>" required>
+                    <div class="invalid-feedback">
+						Enter the location
+					</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 mb-3">
+                        <label for="country" class="form-label mb-0">Country</label>
+                        <input type="text" name="listing[country]" placeholder="India" id="country" class="form-control" value="<%=listing.country%>" required>
+                        <div class="invalid-feedback">
+							Enter the country
+						</div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="price" class="form-label mb-0">Price</label>
+                        <input type="number" name="listing[price]" placeholder="1200" id="price" class="form-control" value="<%=listing.price%>" required>
+                        <div class="invalid-feedback">
+							Enter the price
+						</div>
+                    </div>
+                </div>
+                <div class="mb-3 image-preview">
+                    <h5>Original Image Preview</h5>
+                    <img src=<%=originalImageURL%> alt="img">
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label mb-0">Image URL</label>
+                    <input type="file" name="listing[image]" placeholder="Image File" id="image" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label mb-0">Description</label>
+                    <textarea name="listing[description]" placeholder="A beautiful place to relax and enjoy." id="description" class="form-control"><%=listing.description%></textarea>
+                    <div class="invalid-feedback">
+						Enter the descripition
+					</div>
+                </div>
+                <button type="submit" class="btn btn-dark edit-btn mt-3 mb-3">Save Changes</button>
+            </form>
+        </div>
+    </div>
+</div>
+    
