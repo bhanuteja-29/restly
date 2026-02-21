@@ -19,64 +19,45 @@
 
 
 // -------------------------------
-// Loading Modal Logic
+// Simple Bug-Free Page Loader
 // -------------------------------
 
-// Get modal element safely
-const loaderElement = document.getElementById("loadingModal");
-let loadingModal = null;
+const loader = document.getElementById("pageLoader");
 
-if (loaderElement) {
-  loadingModal = new bootstrap.Modal(loaderElement, {
-    backdrop: 'static',
-    keyboard: false
-  });
+function showLoader() {
+  if (loader) loader.classList.remove("d-none");
 }
 
-// Function to completely reset loader (VERY important for mobile)
-function resetLoader() {
-  if (!loaderElement) return;
-
-  loaderElement.classList.remove("show");
-  loaderElement.style.display = "none";
-
-  document.body.classList.remove("modal-open");
-  document.body.style.overflow = "";
-
-  document.querySelectorAll(".modal-backdrop").forEach(el => el.remove());
+function hideLoader() {
+  if (loader) loader.classList.add("d-none");
 }
 
-// Hide loader when page fully loads
-window.addEventListener("load", () => {
-  resetLoader();
+// Hide loader when page loads
+window.addEventListener("load", hideLoader);
+
+// Fix for mobile back/forward cache
+window.addEventListener("pageshow", function () {
+  hideLoader();
 });
 
-// 🔥 Critical fix for mobile back navigation (bfcache)
-window.addEventListener("pageshow", (event) => {
-  if (event.persisted) {
-    resetLoader();
-  }
-});
-
-// Show loader on normal link clicks
+// Show loader on link click
 document.addEventListener("click", function (e) {
   const link = e.target.closest("a");
 
   if (
-    loadingModal &&
     link &&
     link.href &&
     !link.target &&
     !link.classList.contains("no-loader") &&
     !link.href.startsWith("#")
   ) {
-    loadingModal.show();
+    showLoader();
   }
 });
 
-// Show loader on valid form submission
+// Show loader on valid form submit
 document.addEventListener("submit", function (e) {
-  if (loadingModal && e.target.checkValidity()) {
-    loadingModal.show();
+  if (e.target.checkValidity()) {
+    showLoader();
   }
 });

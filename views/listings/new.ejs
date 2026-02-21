@@ -23,7 +23,7 @@
 					</div>
 					<div class="mb-3">
 						<label for="category">Choose a Category</label>
-						<select name="listing[categories][]" class="form-select" id="category">
+						<select name="listing[categories][]" class="form-select" id="category" required>
     						<option value="">All Categories</option>
     						<option value="Hotels" <%= selectedCategory === 'Hotels' ? 'selected' : '' %>>Hotels</option>
     						<option value="Iconic Cities" <%= selectedCategory === 'Iconic Cities' ? 'selected' : '' %>>Iconic Cities</option>
