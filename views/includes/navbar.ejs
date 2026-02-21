@@ -21,7 +21,7 @@
         </li>
       </ul>
 
-      <div class="search-bar navbar-nav">
+      <div class="search-bar navbar-nav d-none d-md-flex">
         <form class="d-flex" role="search" method="get" action="/listings/search">
           <input class="form-control me-2 search-input" type="search" placeholder="Search Destinations" name="title" value="<%=searchQuery || ''%>"/>
           <button class="btn btn-outline-success btn-search" type="submit"> <i class="fa-solid fa-magnifying-glass"></i>Search</button>
@@ -50,3 +50,15 @@
 
   </div>
 </nav>
+
+<div class="container mt-2 d-md-none">
+  <form class="d-flex" role="search" method="get" action="/listings/search">
+    <input class="form-control me-2" type="search"
+      placeholder="Search Destinations"
+      name="title"
+      value="<%=searchQuery || ''%>"/>
+    <button class="btn btn-outline-success" type="submit">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+  </form>
+</div>
