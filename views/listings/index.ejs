@@ -2,14 +2,6 @@
 	<div class="container py-3  d-none d-md-block">
 		<div class="d-flex flex-wrap justify-content-between text-center filters ">
 
-			<a href="/listings/filter/?category=Trending"
-				class="filter p-2 <%= selectedCategory === 'Trending' ? 'active-filter' : '' %>">
-				<div class="filter p-2">
-					<div><i class="fa-solid fa-fire"></i></div>
-					<p>Trending</p>
-				</div>
-			</a>
-
 			<a href="/listings/filter/?category=Hotels"
 				class="filter p-2 <%= selectedCategory === 'Hotels' ? 'active-filter' : '' %>">
 				<div class="filter p-2">
@@ -147,108 +139,69 @@
 		</div>
 
 		<div class="offcanvas-body">
-			<div class="d-flex flex-wrap justify-content-between text-center filters">
 
-				<!-- SAME FILTER LINKS (Copy same links here) -->
-
-				<a href="/listings/filter/?category=Trending"
-					class="filter p-2 <%= selectedCategory === 'Trending' ? 'active-filter' : '' %>">
-					<div class="filter p-2">
-						<div><i class="fa-solid fa-fire"></i></div>
-						<p>Trending</p>
-					</div>
-				</a>
+			<div class="filters-grid">
 
 				<a href="/listings/filter/?category=Hotels"
-					class="filter p-2 <%= selectedCategory === 'Hotels' ? 'active-filter' : '' %>">
-					<div class="filter p-2">
-						<div><i class="fa-solid fa-bed"></i></div>
-						<p>Hotels</p>
-					</div>
+					class="filter-item <%= selectedCategory === 'Hotels' ? 'active-filter' : '' %>">
+					<i class="fa-solid fa-bed"></i>
+					<span>Hotels</span>
 				</a>
 
 				<a href="/listings/filter/?category=Iconic Cities"
-					class="filter p-2 <%= selectedCategory === 'Iconic Cities' ? 'active-filter' : '' %>">
-					<div class="filter p-2">
-						<div><i class="fa-solid fa-city"></i></div>
-						<p>Iconic Cities</p>
-					</div>
+					class="filter-item <%= selectedCategory === 'Iconic Cities' ? 'active-filter' : '' %>">
+					<i class="fa-solid fa-city"></i>
+					<span>Iconic Cities</span>
 				</a>
 
+				<!-- repeat same pattern for others -->
+
 				<a href="/listings/filter/?category=Mountains"
-					class="filter p-2 <%= selectedCategory === 'Mountains' ? 'active-filter' : '' %>">
-					<div class="filter p-2">
-						<div><i class="fa-solid fa-mountain-sun"></i></div>
-						<p>Mountains</p>
-					</div>
+					class="filter-item  <%= selectedCategory === 'Mountains' ? 'active-filter' : '' %>">
+						<i class="fa-solid fa-mountain-sun"></i>
+						<span>Mountains</span>
 				</a>
 
 				<a href="/listings/filter/?category=Castles"
-					class="filter p-2 <%= selectedCategory === 'Castles' ? 'active-filter' : '' %>">
-					<div class="filter p-2">
-						<div><i class="fa-brands fa-fort-awesome"></i></div>
-						<p>Castles</p>
-					</div>
+					class="filter-item<%= selectedCategory === 'Castles' ? 'active-filter' : '' %>">
+						<i class="fa-brands fa-fort-awesome"></i>
+						<span>Castles</span>
 				</a>
 
 				<a href="/listings/filter/?category=Swimming"
-					class="filter p-2 <%= selectedCategory === 'Swimming' ? 'active-filter' : '' %>">
-					<div class="filter p-2">
-						<div>
-							<i class="fa-solid fa-person-swimming"></i>
-						</div>
-						<p>Swimming</p>
-					</div>
+					class="filter-item<%= selectedCategory === 'Swimming' ? 'active-filter' : '' %>">
+						<i class="fa-solid fa-person-swimming"></i>
+						<span>Swimming</span>
 				</a>
 
 				<a href="/listings/filter/?category=Farms"
-					class="filter p-2 <%= selectedCategory === 'Farms' ? 'active-filter' : '' %>">
-					<div class="filter p-2">
-						<div>
-							<i class="fa-solid fa-cow"></i>
-						</div>
-						<p>Farms</p>
-					</div>
+					class="filter-item<%= selectedCategory === 'Farms' ? 'active-filter' : '' %>">
+						<i class="fa-solid fa-cow"></i>
+						<span>Farms</span>
 				</a>
 
 				<a href="/listings/filter/?category=Hill Stations"
-					class="filter p-2 <%= selectedCategory === 'Hill Stations' ? 'active-filter' : '' %>">
-					<div class="filter p-2">
-						<div>
-							<i class="fa-solid fa-snowflake"></i>
-						</div>
-						<p>Hill Stations</p>
-					</div>
+					class="filter-item<%= selectedCategory === 'Hill Stations' ? 'active-filter' : '' %>">
+						<i class="fa-solid fa-snowflake"></i>
+						<span>Hill Stations</span>
 				</a>
 
 				<a href="/listings/filter/?category=Beach"
-					class="filter p-2 <%= selectedCategory === 'Beach' ? 'active-filter' : '' %>">
-					<div class="filter p-2">
-						<div>
-							<i class="fa-solid fa-umbrella-beach"></i>
-						</div>
-						<p>Beach</p>
-					</div>
+					class="filter-item<%= selectedCategory === 'Beach' ? 'active-filter' : '' %>">
+						<i class="fa-solid fa-umbrella-beach"></i>
+						<span>Beach</span>
 				</a>
 
 				<a href="/listings/filter/?category=Camping"
-					class="filter p-2 <%= selectedCategory === 'Camping' ? 'active-filter' : '' %>">
-					<div class="filter p-2">
-						<div>
+					class="filter-item<%= selectedCategory === 'Camping' ? 'active-filter' : '' %>">
 							<i class="fa-solid fa-campground"></i>
-						</div>
-						<p>Camping</p>
-					</div>
+						<span>Camping</span>
 				</a>
 
 				<a href="/listings/filter/?category=Historical Homes"
-					class="filter p-2 <%= selectedCategory === 'Historical Homes' ? 'active-filter' : '' %>">
-					<div class="filter p-2">
-						<div>
-							<i class="fa-solid fa-hotel"></i>
-						</div>
-						<p>Historical Homes</p>
-					</div>
+					class="filter-item<%= selectedCategory === 'Historical Homes' ? 'active-filter' : '' %>">
+						<i class="fa-solid fa-hotel"></i>
+						<span>Historical Homes</span>
 				</a>
 
 				<!-- repeat for all categories -->
