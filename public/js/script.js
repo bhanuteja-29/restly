@@ -41,3 +41,26 @@ document.addEventListener("click", function (e) {
 document.addEventListener("submit", function () {
   loadingModal.show();
 });
+
+// Hide loader when page fully loads
+window.addEventListener("load", function () {
+    const loader = document.getElementById("loadingModal");
+    if (loader) {
+        const modalInstance = bootstrap.Modal.getInstance(loader);
+        if (modalInstance) {
+            modalInstance.hide();
+        }
+    }
+});
+
+// Extra fix for browser back/forward cache
+window.addEventListener("pageshow", function () {
+    const loader = document.getElementById("loadingModal");
+    if (loader) {
+        loader.classList.remove("show");
+        loader.style.display = "none";
+        document.body.classList.remove("modal-open");
+        const backdrops = document.querySelectorAll(".modal-backdrop");
+        backdrops.forEach(el => el.remove());
+    }
+});
