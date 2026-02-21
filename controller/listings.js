@@ -38,7 +38,26 @@ export const createListing = async (req, res) => {
         }
       }
     );
-  const data = await response.json();
+  if (!response.ok) {
+  console.error("Geocoding API failed:", response.status);
+  req.flash("error", "Location service unavailable. Try again.");
+  return res.redirect("/listings/new");
+}
+
+let data;
+
+try {
+  data = await response.json();
+} catch (err) {
+  console.error("Invalid JSON from geocoding API");
+  req.flash("error", "Invalid location format.");
+  return res.redirect("/listings/new");
+}
+
+if (!data || !data.length) {
+  req.flash("error", "Invalid location!");
+  return res.redirect("/listings/new");
+}
   console.log(data);
   if (!data.length) {
       req.flash("error", "Invalid location!");
