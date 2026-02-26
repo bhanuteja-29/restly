@@ -143,7 +143,7 @@ try {
   const query = req.query.title;
 
   if (!query || query.trim() === "") {
-    return res.redirect("/");
+    return res.redirect("/listings");
   }
 
 
